@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { User, Home, RefreshCw } from "lucide-react";
+import { User, Home, RefreshCw, CreditCard, ListChecks, Users, Laptop, Shield, BarChart3 } from "lucide-react";
 
 const PreQualificationPage: React.FC = () => {
   // ─── Content Data ────────────────────────────────────────────────────────────
@@ -56,6 +56,42 @@ const PreQualificationPage: React.FC = () => {
         "Ensure your child's education continues uninterrupted while you manage financial challenges.",
       icon: "🎓",
     },
+      {
+    title: "Guaranteed Cash Flow",
+    description:
+      "Convert fee arrears into immediate cash flow, with Knit handling the collections process from parents.",
+    icon: <CreditCard className="w-8 h-8 text-gray-700" />,
+  },
+  {
+    title: "Reduced Workload",
+    description:
+      "We handle reminders, collections, and reporting, freeing your administrative staff to focus on education.",
+    icon: <ListChecks className="w-8 h-8 text-gray-700" />,
+  },
+  {
+    title: "Improved Parent Outcomes",
+    description:
+      "Offer short-term payment plans to prevent defaults and maintain positive relationships with families.",
+    icon: <Users className="w-8 h-8 text-gray-700" />,
+  },
+  {
+    title: "No IT Infrastructure Needed",
+    description:
+      "Maintain your existing invoicing and ledger management while we handle reconciliation to statements automatically.",
+    icon: <Laptop className="w-8 h-8 text-gray-700" />,
+  },
+  {
+    title: "Full Compliance",
+    description:
+      "Rest assured with our adherence to South African rules on affordability and collections processes.",
+    icon: <Shield className="w-8 h-8 text-gray-700" />,
+  },
+  {
+    title: "Detailed Reporting",
+    description:
+      "Access comprehensive weekly reports and real-time insights through your dedicated school dashboard.",
+    icon: <BarChart3 className="w-8 h-8 text-gray-700" />,
+  },
   ];
 
   const testimonials = [
@@ -110,11 +146,14 @@ const PreQualificationPage: React.FC = () => {
       q: "How quickly will the school receive payment?",
       a: "Once your application is approved and all agreements are signed, we typically pay the school within 1-2 business days.",
     },
+    
   ];
 
   // simple expand/collapse for FAQ
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [formType, setFormType] = useState<"parent" | "school">("parent");
+
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
@@ -148,16 +187,16 @@ const PreQualificationPage: React.FC = () => {
 
     {/* Desktop Navigation Menu */}
     <nav className="hidden md:flex space-x-8 text-gray-600">
-      <a href="#features" className="hover:text-gray-900">Features</a>
+      <a href="#features" className="hover:text-gray-900">Why knit</a>
       <a href="#how" className="hover:text-gray-900">How It Works</a>
-      <a href="#testimonials" className="hover:text-gray-900">For Schools</a>
+      <a href="#schools" className="hover:text-gray-900">For Schools</a>
       <a href="#testimonials" className="hover:text-gray-900">For Parents</a>
       <a href="#faq" className="hover:text-gray-900">FAQ</a>
     </nav>
 
     {/* Desktop Buttons */}
     <div className="flex space-x-4">
-      <button className="text-gray-600 hover:text-gray-900">Log In</button>
+      {/* <button className="text-gray-600 hover:text-gray-900">Log In</button> */}
       <button className="bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition">
         Pre-qualify Now
       </button>
@@ -169,7 +208,7 @@ const PreQualificationPage: React.FC = () => {
     <div className="md:hidden flex flex-col space-y-4 text-gray-600 px-6 py-4">
       <a href="#features" className="hover:text-gray-900">Features</a>
       <a href="#how" className="hover:text-gray-900">How It Works</a>
-      <a href="#testimonials" className="hover:text-gray-900">For Schools</a>
+      <a href="#schools" className="hover:text-gray-900">For Schools</a>
       <a href="#testimonials" className="hover:text-gray-900">For Parents</a>
       <a href="#faq" className="hover:text-gray-900">FAQ</a>
       <div className="flex flex-col space-y-4 mt-4">
@@ -194,31 +233,107 @@ const PreQualificationPage: React.FC = () => {
             Help your child stay in school while managing your finances. Knit pays the school upfront, you pay us back in flexible installments.
           </p>
           <div className="flex space-x-4">
-            <button className="bg-gray-800 text-white px-6 py-3 rounded-lg shadow hover:bg-gray-900 transition">
-              Pre-qualify Now
-            </button>
-            <button className="border border-gray-300 px-6 py-3 rounded-lg hover:bg-gray-100 transition">
-              For Schools
-            </button>
-          </div>
+            <button onClick={() => setFormType("parent")}
+              className={`px-6 py-3 rounded-lg shadow transition ${
+                formType === "parent"
+                ? "bg-gray-800 text-white"
+                : "border border-gray-300 text-gray-700 hover:bg-gray-100"
+        }`}>
+    Pre-qualify Now
+  </button>
+
+  <button
+    onClick={() => setFormType("school")}
+    className={`px-6 py-3 rounded-lg shadow transition ${
+      formType === "school"
+        ? "bg-gray-800 text-white"
+        : "border border-gray-300 text-gray-700 hover:bg-gray-100"
+    }`}
+  >
+    For Schools
+  </button>
+</div>
+
+
           <p className="text-sm text-gray-500 mt-4">
             Free pre-qualification · No obligation · Quick response
           </p>
         </div>
 
         {/* Right form card */}
-        <div className="bg-white shadow-xl rounded-2xl p-8 border border-gray-100">
-          <h2 className="text-xl font-semibold text-gray-800 mb-6">Pre-qualify in seconds</h2>
-          <form className="space-y-5">
-            <input type="text" placeholder="Enter your full name" className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800" />
-            <input type="text" placeholder="Enter your surname" className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800" />
-            <input type="text" placeholder="Enter your mobile number" className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800" />
-            <input type="text" placeholder="Enter your ID number" className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800" />
-            <button type="button" className="w-full bg-gray-800 text-white py-3 rounded-lg shadow hover:bg-gray-900 transition">
-              Check Eligibility
-            </button>
-          </form>
-        </div>
+        {/* Right form card */}
+<div className="bg-white shadow-xl rounded-2xl p-8 border border-gray-100">
+  {formType === "parent" ? (
+    <>
+      <h2 className="text-xl font-semibold text-gray-800 mb-6">
+        Pre-qualify in seconds
+      </h2>
+      <form className="space-y-5">
+        <input
+          type="text"
+          placeholder="Enter your full name"
+          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
+        />
+        <input
+          type="text"
+          placeholder="Enter your email address"
+          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
+        />
+        <input
+          type="text"
+          placeholder="Enter your mobile number"
+          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
+        />
+        <input
+          type="text"
+          placeholder="Enter your ID number"
+          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
+        />
+        <button
+          type="button"
+          className="w-full bg-gray-800 text-white py-3 rounded-lg shadow hover:bg-gray-900 transition"
+        >
+          Check Eligibility
+        </button>
+      </form>
+    </>
+  ) : (
+    <>
+      <h2 className="text-xl font-semibold text-gray-800 mb-6">
+        School Partnership Form
+      </h2>
+      <form className="space-y-5">
+        <input
+          type="text"
+          placeholder="School Name"
+          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
+        />
+        <input
+          type="text"
+          placeholder="Contact Person"
+          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
+        />
+        <input
+          type="email"
+          placeholder="Contact Email"
+          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
+        />
+        <input
+          type="text"
+          placeholder="Contact Number"
+          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
+        />
+        <button
+          type="button"
+          className="w-full bg-gray-800 text-white py-3 rounded-lg shadow hover:bg-gray-900 transition"
+        >
+          Submit Inquiry
+        </button>
+      </form>
+    </>
+  )}
+</div>
+
       </main>
 
       {/* ── Why Choose Knit ──────────────────────────────────────────────────── */}
@@ -241,6 +356,7 @@ const PreQualificationPage: React.FC = () => {
           </div>
         </div>
       </section>
+     
 
       {/* ── How Knit Works ───────────────────────────────────────────────────── */}
       <section id="how" className="bg-white py-16">
@@ -260,6 +376,35 @@ const PreQualificationPage: React.FC = () => {
           </div>
         </div>
       </section>
+       {/* -------------------for schools page ------------------------------------- */}
+        <section id="schools" className="py-16 bg-white">
+      <div className="max-w-6xl mx-auto px-6 text-center">
+        {/* Heading */}
+        <h2 className="text-3xl font-bold text-gray-900">
+          Why Schools Choose Knit
+        </h2>
+        <p className="mt-3 text-lg text-gray-600">
+          Partner with Knit to transform your school's financial operations and
+          improve parent relationships
+        </p>
+
+        {/* Features Grid */}
+        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature, idx) => (
+            <div
+              key={idx}
+              className="p-6 rounded-2xl shadow-sm border border-gray-100 text-left hover:shadow-md transition"
+            >
+              <div className="mb-4">{feature.icon}</div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-gray-600 text-base">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
       {/* ── Testimonials ─────────────────────────────────────────────────────── */}
       <section id="testimonials" className="bg-gray-50 py-16">
@@ -358,9 +503,9 @@ const PreQualificationPage: React.FC = () => {
             <h4 className="text-white font-semibold mb-4">Company</h4>
             <ul className="space-y-3 text-sm">
               <li><a href="#" className="hover:text-white">About Us</a></li>
-              <li><a href="#" className="hover:text-white">Careers</a></li>
+              {/* <li><a href="#" className="hover:text-white">Careers</a></li>
               <li><a href="#" className="hover:text-white">Press</a></li>
-              <li><a href="#" className="hover:text-white">Blog</a></li>
+              <li><a href="#" className="hover:text-white">Blog</a></li> */}
             </ul>
           </div>
 
