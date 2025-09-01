@@ -337,25 +337,50 @@ const PreQualificationPage: React.FC = () => {
       </main>
 
       {/* ── Why Choose Knit ──────────────────────────────────────────────────── */}
-      <section id="features" className="bg-gray-50 py-16">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose Knit</h2>
-          <p className="text-gray-600 mb-12">
-            Our features are designed to make school fee payments easier for parents and schools.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-left">
-            {features.map((f) => (
-              <div key={f.id} className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center text-2xl">{f.icon}</div>
-                <div>
-                  <h3 className="font-semibold text-lg text-gray-900 mb-1">{f.title}</h3>
-                  <p className="text-gray-600 text-sm">{f.description}</p>
-                </div>
-              </div>
-            ))}
+      {/* ── Features Section (Dynamic) ───────────────────────────── */}
+<section id="features" className="bg-gray-50 py-16">
+  <div className="max-w-6xl mx-auto px-6 text-center">
+    <h2 className="text-3xl font-bold text-gray-900 mb-4">
+      {formType === "school" ? "Why Schools Choose Knit" : "Why Choose Knit"}
+    </h2>
+    <p className="text-gray-600 mb-12">
+      {formType === "school"
+        ? "Partner with Knit to transform your school's financial operations and improve parent relationships."
+        : "Our features are designed to make school fee payments easier for parents and schools."}
+    </p>
+
+    {/* Grid */}
+    <div
+      className={`grid gap-8 ${
+        formType === "school"
+          ? "sm:grid-cols-2 lg:grid-cols-3"
+          : "md:grid-cols-2 text-left"
+      }`}
+    >
+      {features.map((feature, idx) => (
+        <div
+          key={idx}
+          className={`p-6 rounded-2xl shadow-sm border border-gray-100 ${
+            formType === "school"
+              ? "hover:shadow-md transition text-left"
+              : "flex items-start space-x-4"
+          }`}
+        >
+          <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center text-2xl">
+            {feature.icon}
+          </div>
+          <div className={formType === "school" ? "" : "ml-2"}>
+            <h3 className="text-lg font-semibold text-gray-900 mb-1">
+              {feature.title}
+            </h3>
+            <p className="text-gray-600 text-sm">{feature.description}</p>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
      
 
       {/* ── How Knit Works ───────────────────────────────────────────────────── */}
@@ -377,19 +402,19 @@ const PreQualificationPage: React.FC = () => {
         </div>
       </section>
        {/* -------------------for schools page ------------------------------------- */}
-        <section id="schools" className="py-16 bg-white">
-      <div className="max-w-6xl mx-auto px-6 text-center">
+        {/* <section id="schools" className="py-16 bg-white">
+      <div className="max-w-6xl mx-auto px-6 text-center"> */}
         {/* Heading */}
-        <h2 className="text-3xl font-bold text-gray-900">
+        {/* <h2 className="text-3xl font-bold text-gray-900">
           Why Schools Choose Knit
         </h2>
         <p className="mt-3 text-lg text-gray-600">
           Partner with Knit to transform your school's financial operations and
           improve parent relationships
-        </p>
+        </p> */}
 
         {/* Features Grid */}
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {/* <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, idx) => (
             <div
               key={idx}
@@ -404,7 +429,7 @@ const PreQualificationPage: React.FC = () => {
           ))}
         </div>
       </div>
-    </section>
+    </section> */}
 
       {/* ── Testimonials ─────────────────────────────────────────────────────── */}
       <section id="testimonials" className="bg-gray-50 py-16">
