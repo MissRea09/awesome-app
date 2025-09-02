@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { User, Home, RefreshCw, CreditCard, ListChecks, Users, Laptop, Shield, BarChart3 } from "lucide-react";
 
+// ─── Regex Patterns ───────────────────────────────────────────
+const nameRegex = /^[A-Za-z\s]+$/;
+const mobileRegex = /^\d{10,}$/;
+const idRegex = /^\d{13}$/;
+
 const PreQualificationPage: React.FC = () => {
   // ─── Content Data ────────────────────────────────────────────────────────────
   const steps = [
@@ -153,7 +158,139 @@ const PreQualificationPage: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [formType, setFormType] = useState<"parent" | "school">("parent");
-
+  const [formData, setFormData] = useState({
+    fullName: "",
+    surname: "",
+    mobile: "",
+    idNumber: "",
+    schoolName: "",
+    contactPerson: "",
+    contactEmail: "",
+    contactNumber: "",
+  });
+  const [errors, setErrors] = useState({
+    fullName: "",
+    surname: "",
+    mobile: "",
+    idNumber: "",
+    schoolName: "",
+    contactPerson: "",
+    contactEmail: "",
+    contactNumber: "",
+  });
+  // ─── Handle Input Change ────────────────────────────────────
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+  // ─── Validation Function ───────────────────────────────────
+  const validate = () => {
+    const newErrors: any = {
+      fullName: "",
+      surname: "",
+      mobile: "",
+      idNumber: "",
+      schoolName: "",
+      contactPerson: "",
+      contactEmail: "",
+      contactNumber: "",
+    };
+    let isValid = true;
+    if (formType === "parent") {
+      if (!formData.fullName.trim()) {
+        newErrors.fullName = "Full Name is required.";
+        isValid = false;
+      } else if (!nameRegex.test(formData.fullName)) {
+        newErrors.fullName = "Only letters and spaces allowed.";
+        isValid = false;
+      }
+      if (!formData.surname.trim()) {
+        newErrors.surname = "Surname is required.";
+        isValid = false;
+      } else if (!nameRegex.test(formData.surname)) {
+        newErrors.surname = "Only letters and spaces allowed.";
+        isValid = false;
+      }
+      if (!formData.mobile.trim()) {
+        newErrors.mobile = "Mobile number is required.";
+        isValid = false;
+      } else if (
+        !mobileRegex.test(formData.mobile) ||
+        formData.mobile.replace(/\D/g, "").length < 10
+      ) {
+        newErrors.mobile = "Please enter a valid mobile number (10+ digits).";
+        isValid = false;
+      }
+      if (!formData.idNumber.trim()) {
+        newErrors.idNumber = "ID number is required.";
+        isValid = false;
+      } else if (!idRegex.test(formData.idNumber)) {
+        newErrors.idNumber =
+          "Please enter a valid South African ID number (13 digits).";
+        isValid = false;
+      }
+    }
+    if (formType === "school") {
+      if (!formData.schoolName.trim()) {
+        newErrors.schoolName = "School Name is required.";
+        isValid = false;
+      }
+      if (!formData.contactPerson.trim()) {
+        newErrors.contactPerson = "Contact Person is required.";
+        isValid = false;
+      } else if (!nameRegex.test(formData.contactPerson)) {
+        newErrors.contactPerson = "Only letters and spaces allowed.";
+        isValid = false;
+      }
+      if (!formData.contactEmail.trim()) {
+        newErrors.contactEmail = "Contact Email is required.";
+        isValid = false;
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.contactEmail)) {
+        newErrors.contactEmail = "Please enter a valid email.";
+        isValid = false;
+      }
+      if (!formData.contactNumber.trim()) {
+        newErrors.contactNumber = "Contact Number is required.";
+        isValid = false;
+      } else if (!/^\d{10}$/.test(formData.contactNumber)) {
+        newErrors.contactNumber = "Please enter a valid 10-digit number.";
+        isValid = false;
+      }
+    }
+    setErrors(newErrors);
+    return isValid;
+  };
+  // ─── Helper: Is Form Valid (for disabling submit) ───────────
+  const isFormValid = () => {
+    if (formType === "parent") {
+      return (
+        formData.fullName.trim() &&
+        formData.surname.trim() &&
+        formData.mobile.trim() &&
+        formData.idNumber.trim() &&
+        Object.values(errors).every((err) => !err)
+      );
+    }
+    if (formType === "school") {
+      return (
+        formData.schoolName.trim() &&
+        formData.contactPerson.trim() &&
+        formData.contactEmail.trim() &&
+        formData.contactNumber.trim() &&
+        Object.values(errors).every((err) => !err)
+      );
+    }
+    return false;
+  };
+  // ─── Handle Submit ─────────────────────────────────────────
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validate()) {
+      alert("Form submitted successfully!");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
@@ -262,78 +399,157 @@ const PreQualificationPage: React.FC = () => {
 
         {/* Right form card */}
         {/* Right form card */}
-<div className="bg-white shadow-xl rounded-2xl p-8 border border-gray-100">
-  {formType === "parent" ? (
-    <>
-      <h2 className="text-xl font-semibold text-gray-800 mb-6">
-        Pre-qualify in seconds
-      </h2>
-      <form className="space-y-5">
-        <input
-          type="text"
-          placeholder="Enter your full name"
-          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
-        />
-        <input
-          type="text"
-          placeholder="Enter your email address"
-          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
-        />
-        <input
-          type="text"
-          placeholder="Enter your mobile number"
-          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
-        />
-        <input
-          type="text"
-          placeholder="Enter your ID number"
-          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
-        />
+            <div className="w-[500px] mx-auto p-6 bg-white rounded-2xl shadow">
+      {/* Toggle Buttons */}
+      {/* <div className="flex gap-2 mb-4">
         <button
           type="button"
-          className="w-full bg-gray-800 text-white py-3 rounded-lg shadow hover:bg-gray-900 transition"
+          className={`px-4 py-2 rounded-lg ${
+            formType === "parent"
+              ? "bg-blue-600 text-white"
+              : "bg-gray-200 text-gray-700"
+          }`}
+          onClick={() => setFormType("parent")}
+        >
+          Parent
+        </button>
+        <button
+          type="button"
+          className={`px-4 py-2 rounded-lg ${
+            formType === "school"
+              ? "bg-blue-600 text-white"
+              : "bg-gray-200 text-gray-700"
+          }`}
+          onClick={() => setFormType("school")}
+        >
+          School
+        </button>
+      </div> */}
+      {/* Form */}
+      <form onSubmit={handleSubmit} className="space-y-4">
+        {formType === "parent" && (
+          <>
+            <div>
+              <input
+                type="text"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
+                placeholder="Full Name"
+                className="w-full p-2 border rounded-lg"
+              />
+              {errors.fullName && (
+                <p className="text-red-500 text-sm">{errors.fullName}</p>
+              )}
+            </div>
+            <div>
+              <input
+                type="text"
+                name="surname"
+                value={formData.surname}
+                onChange={handleChange}
+                placeholder="Surname"
+                className="w-full p-2 border rounded-lg"
+              />
+              {errors.surname && (
+                <p className="text-red-500 text-sm">{errors.surname}</p>
+              )}
+            </div>
+            <div>
+              <input
+                type="text"
+                name="mobile"
+                value={formData.mobile}
+                onChange={handleChange}
+                placeholder="Mobile Number"
+                className="w-full p-2 border rounded-lg"
+              />
+              {errors.mobile && (
+                <p className="text-red-500 text-sm">{errors.mobile}</p>
+              )}
+            </div>
+            <div>
+              <input
+                type="text"
+                name="idNumber"
+                value={formData.idNumber}
+                onChange={handleChange}
+                placeholder="South African ID (13 digits)"
+                className="w-full p-2 border rounded-lg"
+              />
+              {errors.idNumber && (
+                <p className="text-red-500 text-sm">{errors.idNumber}</p>
+              )}
+            </div>
+          </>
+        )}
+        {formType === "school" && (
+          <>
+            <div>
+              <input
+                type="text"
+                name="schoolName"
+                value={formData.schoolName}
+                onChange={handleChange}
+                placeholder="School Name"
+                className="w-full p-2 border rounded-lg"
+              />
+              {errors.schoolName && (
+                <p className="text-red-500 text-sm">{errors.schoolName}</p>
+              )}
+            </div>
+            <div>
+              <input
+                type="text"
+                name="contactPerson"
+                value={formData.contactPerson}
+                onChange={handleChange}
+                placeholder="Contact Person"
+                className="w-full p-2 border rounded-lg"
+              />
+              {errors.contactPerson && (
+                <p className="text-red-500 text-sm">{errors.contactPerson}</p>
+              )}
+            </div>
+            <div>
+              <input
+                type="email"
+                name="contactEmail"
+                value={formData.contactEmail}
+                onChange={handleChange}
+                placeholder="Contact Email"
+                className="w-full p-2 border rounded-lg"
+              />
+              {errors.contactEmail && (
+                <p className="text-red-500 text-sm">{errors.contactEmail}</p>
+              )}
+            </div>
+            <div>
+              <input
+                type="text"
+                name="contactNumber"
+                value={formData.contactNumber}
+                onChange={handleChange}
+                placeholder="Contact Number"
+                className="w-full p-2 border rounded-lg"
+              />
+              {errors.contactNumber && (
+                <p className="text-red-500 text-sm">{errors.contactNumber}</p>
+              )}
+            </div>
+          </>
+        )}
+        <button
+          type="submit"
+          disabled={!isFormValid()}
+          className={`w-full py-2 rounded-lg text-white ${
+            isFormValid() ? "bg-gray-900 " : "bg-gray-400"
+          }`}
         >
           Check Eligibility
         </button>
       </form>
-    </>
-  ) : (
-    <>
-      <h2 className="text-xl font-semibold text-gray-800 mb-6">
-        School Partnership Form
-      </h2>
-      <form className="space-y-5">
-        <input
-          type="text"
-          placeholder="School Name"
-          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
-        />
-        <input
-          type="text"
-          placeholder="Contact Person"
-          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
-        />
-        <input
-          type="email"
-          placeholder="Contact Email"
-          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
-        />
-        <input
-          type="text"
-          placeholder="Contact Number"
-          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
-        />
-        <button
-          type="button"
-          className="w-full bg-gray-800 text-white py-3 rounded-lg shadow hover:bg-gray-900 transition"
-        >
-          Submit Inquiry
-        </button>
-      </form>
-    </>
-  )}
-</div>
-
+    </div>
       </main>
 
       {/* ── Why Choose Knit ──────────────────────────────────────────────────── */}
