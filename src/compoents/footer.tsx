@@ -1,11 +1,19 @@
-import React from "react";
+// src/components/Footer.tsx
+import React, { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
+import TermsOfServiceModal from "./TermsOfServiceModal";
+import PrivacyPolicyModal from "./PrivacyPolicyModal";
+import CookiesPolicyModal from "../compoents/cookiesPolicy";
 
 const Footer: React.FC = () => {
+  const [isTermsOpen, setIsTermsOpen] = useState(false);
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
+  const [isCookiesOpen, setIsCookiesOpen] = useState(false);
+
   return (
     <footer className="bg-gray-900 text-gray-300 py-12">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
-        {/* ─── Brand Section ─────────────────────────────────────── */}
+        {/* Brand Section */}
         <div>
           <h3 className="text-white text-lg font-bold mb-4">Knit</h3>
           <p className="text-sm mb-4">
@@ -28,7 +36,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* ─── Company Links ────────────────────────────────────── */}
+        {/* Company Links */}
         <div>
           <h4 className="text-white font-semibold mb-4">Company</h4>
           <ul className="space-y-2 text-sm">
@@ -39,7 +47,7 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        {/* ─── Resources Links ─────────────────────────────────── */}
+        {/* Resources Links */}
         <div>
           <h4 className="text-white font-semibold mb-4">Resources</h4>
           <ul className="space-y-2 text-sm">
@@ -50,7 +58,7 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        {/* ─── Contact Section ─────────────────────────────────── */}
+        {/* Contact Section */}
         <div>
           <h4 className="text-white font-semibold mb-4">Contact</h4>
           <ul className="space-y-3 text-sm">
@@ -70,15 +78,44 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      {/* ─── Bottom Bar ───────────────────────────────────────── */}
+      {/* Bottom Bar */}
       <div className="border-t border-gray-700 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between text-sm px-6 max-w-7xl mx-auto">
         <p>© 2025 Knit. All rights reserved.</p>
         <div className="flex space-x-6 mt-4 md:mt-0">
-          <a href="#">Terms of Service</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Cookie Policy</a>
+          <button
+            onClick={() => setIsTermsOpen(true)}
+            className="hover:underline"
+          >
+            Terms of Service
+          </button>
+          <button
+            onClick={() => setIsPrivacyOpen(true)}
+            className="hover:underline"
+          >
+            Privacy Policy
+          </button>
+          <button
+            onClick={() => setIsCookiesOpen(true)}
+            className="hover:underline"
+          >
+            Cookie Policy
+          </button>
         </div>
       </div>
+
+      {/* Modals */}
+      <TermsOfServiceModal
+        isOpen={isTermsOpen}
+        onClose={() => setIsTermsOpen(false)}
+      />
+      <PrivacyPolicyModal
+        isOpen={isPrivacyOpen}
+        onClose={() => setIsPrivacyOpen(false)}
+      />
+      <CookiesPolicyModal
+        isOpen={isCookiesOpen}
+        onClose={() => setIsCookiesOpen(false)}
+      />
     </footer>
   );
 };
