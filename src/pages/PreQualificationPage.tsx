@@ -151,7 +151,7 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="px-8 md:px-20 py-16 space-y-16">
+    <div className="px-8 md:px-20 py-16 space-y-16 mt-12">
       {/* Top Section */}
       <div className="flex flex-col md:flex-row justify-between items-center space-y-12 md:space-y-0">
         {/* Left Section */}
@@ -194,7 +194,7 @@ const HomePage: React.FC = () => {
 
         {/* Right Section - Form */}
         <div className="bg-white shadow-md rounded-xl p-8 w-full max-w-md">
-          <h3 className="text-lg font-semibold mb-6">Pre-qualify in seconds</h3>
+          <h3 className="text-lg font-semibold mb-12">Pre-qualify in seconds</h3>
 
           <form className="space-y-4" onSubmit={handleSubmit}>
             {formType === "parent" && (

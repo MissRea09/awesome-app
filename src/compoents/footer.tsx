@@ -64,15 +64,15 @@ const Footer: React.FC = () => {
           <ul className="space-y-3 text-sm">
             <li className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-gray-400" />
-              support@knitpay.com
+              info@knit.cash
             </li>
             <li className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-gray-400" />
-              +27 10 123 4567
+              +27 83 303 4111
             </li>
             <li className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-gray-400" />
-              123 Main Street, Johannesburg, South Africa
+              <MapPin className="w-10 h-4 text-gray-400 mb-10" />
+              Level 2, The Zone@Rosebank,177 Oxford Road, Johannesburg,2196, South Africa
             </li>
           </ul>
         </div>
