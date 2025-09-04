@@ -7,8 +7,6 @@ import HowKnitWorks from "./pages/HowKnitWorks";
 import Testimonials from "./pages/testimonies";
 import Footer from "./compoents/footer";
 import HowKnitWorksSchools from "./pages/howKnitWorksForSchools";
-
-// 👇 move TermsOfService into pages, not components
 import TermsOfService from "./pages/TermsOfService";
 
 const App: React.FC = () => {
@@ -18,7 +16,7 @@ const App: React.FC = () => {
         <Navbar />
 
         <Routes>
-          {/* Home route */}
+          {/* Home route (PreQual only) */}
           <Route
             path="/"
             element={
@@ -26,15 +24,23 @@ const App: React.FC = () => {
                 <section id="home">
                   <HomePage />
                 </section>
-                <section id="how-it-works">
+                {/* <section id="how-it-works">
                   <HowKnitWorks />
-                </section>
-                {/* Uncomment if you want schools section */}
-                {/* <section id="how-it-works-for-schools">
-                  <HowKnitWorksSchools />
                 </section> */}
                 <section id="testimonials">
                   <Testimonials />
+                </section>
+              </>
+            }
+          />
+
+          {/* Schools route */}
+          <Route
+            path="/schools"
+            element={
+              <>
+                <section id="schools">
+                  <HowKnitWorksSchools />
                 </section>
               </>
             }
