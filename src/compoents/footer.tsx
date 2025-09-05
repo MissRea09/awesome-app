@@ -40,14 +40,15 @@ const Footer: React.FC = () => {
         <div>
           <h4 className="text-white font-semibold mb-4">Company</h4>
           <ul className="space-y-2 text-sm">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Press</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="#home">Home </a></li>
+           <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#faq">FAQ</a></li>
           </ul>
         </div>
 
-        {/* Resources Links */}
+ 
+        {/* Resources Links
         <div>
           <h4 className="text-white font-semibold mb-4">Resources</h4>
           <ul className="space-y-2 text-sm">
@@ -56,7 +57,7 @@ const Footer: React.FC = () => {
             <li><a href="#">FAQ</a></li>
             <li><a href="#">Support</a></li>
           </ul>
-        </div>
+        </div>  */}
 
         {/* Contact Section */}
         <div>
@@ -68,7 +69,7 @@ const Footer: React.FC = () => {
             </li>
             <li className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-gray-400" />
-              +27 83 303 4111
+              +27 83 974 9024
             </li>
             <li className="flex items-center gap-2">
               <MapPin className="w-10 h-4 text-gray-400 mb-10" />

@@ -17,7 +17,7 @@ const testimonials = [
     img: "https://api.dicebear.com/7.x/avataaars/svg?seed=Michael",
   },
   {
-    name: "David Moyo",
+    name: "Iminathi Mahlangu",
     role: "Single parent",
     rating: 4,
     text: "After losing my job, I was worried about my daughter's education. Knit helped me manage the school fees until I got back on my feet. The pre-qualification was incredibly fast.",
