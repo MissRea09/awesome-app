@@ -1,5 +1,5 @@
 import React from "react";
-import knitLogo from "../img/Logoknit.png";
+import knitLogo from "../img/Knit logo.png";
 const Navbar: React.FC = () => {
   return (
  
