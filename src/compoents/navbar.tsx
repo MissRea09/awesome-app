@@ -1,5 +1,5 @@
 import React from "react";
-import knitLogo from "../img/Logoknit.png";
+import knitLogo from "../img/Knit logo.png";
 const Navbar: React.FC = () => {
   return (
  
@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
   <img
     src={knitLogo}
     alt="Knit Logo"
-    className="h-28 w-auto rounded-md"
+    className="h-28 w-autonrounded-md"
   />
   {/* <span className="text-2xl font-bold text-gray-800">Knit</span> */}
 </div>
@@ -34,4 +34,5 @@ const Navbar: React.FC = () => {
     </nav>
   );
 };
+
 export default Navbar;
