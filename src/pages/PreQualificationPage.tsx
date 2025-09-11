@@ -32,7 +32,7 @@ const HomePage: React.FC = () => {
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  const [showModal, setShowModal] = useState(false); // 👈 modal state
+  const [showModal, setShowModal] = useState(false);
 
   // ─── Regex Patterns ─────────────────────────────
   const nameRegex = /^[A-Za-z\s]+$/;
@@ -131,7 +131,7 @@ const HomePage: React.FC = () => {
       if (error) throw error;
 
       setMessage("✅ Form submitted successfully!");
-      setShowModal(true); // 👈 show modal
+      setShowModal(true);
 
       setFormData({
         fullName: "",
@@ -173,7 +173,7 @@ const HomePage: React.FC = () => {
               }`}
               onClick={() => setFormType("parent")}
             >
-              Pre-qualify Now
+              Pre-qualify
             </button>
             <button
               type="button"
@@ -194,7 +194,10 @@ const HomePage: React.FC = () => {
 
         {/* Right Section - Form */}
         <div className="bg-white shadow-md rounded-xl p-8 w-full max-w-md">
-          <h3 className="text-lg font-semibold mb-12">Pre-qualify in seconds</h3>
+          {/* Dynamic Title */}
+          <h3 className="text-lg font-semibold mb-12">
+            {formType === "parent" ? "Pre-qualify" : "Sign-up"}
+          </h3>
 
           <form className="space-y-4" onSubmit={handleSubmit}>
             {formType === "parent" && (
@@ -212,7 +215,9 @@ const HomePage: React.FC = () => {
                     }`}
                   />
                   {errors.fullName && (
-                    <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.fullName}
+                    </p>
                   )}
                 </div>
 
@@ -228,7 +233,9 @@ const HomePage: React.FC = () => {
                     }`}
                   />
                   {errors.surname && (
-                    <p className="text-red-500 text-sm mt-1">{errors.surname}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.surname}
+                    </p>
                   )}
                 </div>
 
@@ -244,7 +251,9 @@ const HomePage: React.FC = () => {
                     }`}
                   />
                   {errors.mobile && (
-                    <p className="text-red-500 text-sm mt-1">{errors.mobile}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.mobile}
+                    </p>
                   )}
                 </div>
 
@@ -260,7 +269,9 @@ const HomePage: React.FC = () => {
                     }`}
                   />
                   {errors.idNumber && (
-                    <p className="text-red-500 text-sm mt-1">{errors.idNumber}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.idNumber}
+                    </p>
                   )}
                 </div>
               </>
@@ -348,7 +359,11 @@ const HomePage: React.FC = () => {
               disabled={loading}
               className="w-full bg-gray-800 text-white py-3 rounded-md font-medium hover:bg-gray-900 disabled:opacity-50"
             >
-              {loading ? "Submitting..." : "Check Eligibility"}
+              {loading
+                ? "Submitting..."
+                : formType === "parent"
+                ? "Check Eligibility"
+                : "Submit"}
             </button>
           </form>
 
@@ -379,7 +394,9 @@ const HomePage: React.FC = () => {
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
           <div className="bg-white rounded-xl shadow-lg p-8 max-w-sm w-full text-center">
-            <h2 className="text-xl font-semibold mb-4">✅ Submission Successful</h2>
+            <h2 className="text-xl font-semibold mb-4">
+              ✅ Submission Successful
+            </h2>
             <p className="text-gray-600 mb-6">
               Thank you! We will contact you shortly.
             </p>

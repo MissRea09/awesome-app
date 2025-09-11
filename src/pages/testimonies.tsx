@@ -3,14 +3,14 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
+    name: "Mary Johnson",
     role: "Parent of two",
     rating: 5,
     text: "Knit was a lifesaver when I faced unexpected financial challenges. My children stayed in school, and I was able to pay back the fees on my own terms. The process was incredibly simple.",
     img: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
   },
   {
-    name: "Michael Ndlovu",
+    name: "Michelle Ndlovu",
     role: "School Financial Administrator",
     rating: 5,
     text: "Partnering with Knit has improved our cash flow significantly. We no longer have to chase fee payments, and more students are able to continue their education without interruption.",
