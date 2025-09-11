@@ -57,7 +57,7 @@ const groupedFaqsData = [
     category: "Schools",
     question: "How much does Knit charge schools?",
     answer:
-      "We charge a small arrear protection fee (typically 3–5%) on the amounts we settle. This is clearly agreed upfront.",
+      "We charge a small arrear protection fee on the amounts we settle. This is clearly agreed upfront.",
   },
   {
     category: "Schools",
