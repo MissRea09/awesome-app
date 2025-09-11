@@ -50,4 +50,3 @@ const HowKnitWorks: React.FC = () => {
 };
 
 export default HowKnitWorks;
-

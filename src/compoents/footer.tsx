@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import TermsOfServiceModal from "./TermsOfServiceModal";
 import PrivacyPolicyModal from "./PrivacyPolicyModal";
 import CookiesPolicyModal from "../compoents/cookiesPolicy";
+import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
   const [isTermsOpen, setIsTermsOpen] = useState(false);
@@ -40,10 +41,15 @@ const Footer: React.FC = () => {
         <div>
           <h4 className="text-white font-semibold mb-4">Company</h4>
           <ul className="space-y-2 text-sm">
-            <li><a href="#home">Home </a></li>
-           <li><a href="#how-it-works">How it works</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#faq">FAQ</a></li>
+         <ul className="space-y-2 text-sm">
+        <li><a href="/#home">Home</a></li>
+        <li><a href="/#how-it-works">How it works</a></li>
+        <li><a href="/#testimonials">Testimonials</a></li>
+        <li><Link to="/faq">FAQ</Link></li>
+        <li><Link to="/about">About Us</Link></li>
+   
+</ul>
+
           </ul>
         </div>
 
@@ -122,3 +128,4 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
+
