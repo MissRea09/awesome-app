@@ -6,7 +6,7 @@ const HowKnitWorksSchools: React.FC = () => {
       id: 1,
       title: "School Onboarding",
       description:
-        "Sign up with Knit and complete our school agreement to transfer credit risk from your school to us. We pay you 96% of your debtors book upfront.",
+        "Sign up with Knit and complete our school agreement to transfer credit risk from your school to us. We pay your your debtors book upfront.",
     },
     {
       id: 2,

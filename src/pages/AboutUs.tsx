@@ -6,7 +6,11 @@ const AboutUs: React.FC = () => {
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-6">About Knit</h1>
         <p className="text-gray-700 mb-4">
+<<<<<<< HEAD
           At knit, we believe access to education and essential goods should
+=======
+          At Knit, we believe access to education and essential goods should
+>>>>>>> origin/main
           never be disrupted by cash-flow challenges. Too often, schools,
           parents, and businesses are trapped between rigid payment systems and
           the real-world reality of delayed income. That’s where we come in.
@@ -64,4 +68,8 @@ const AboutUs: React.FC = () => {
   );
 };
 
+<<<<<<< HEAD
 export default AboutUs;
+=======
+export default AboutUs;
+>>>>>>> origin/main

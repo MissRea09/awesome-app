@@ -5,7 +5,11 @@ const groupedFaqsData = [
   // Parents
   {
     category: "Parents",
+<<<<<<< HEAD
     question: "Will my child be affected if I apply for knit support?",
+=======
+    question: "Will my child be affected if I apply for Knit support?",
+>>>>>>> origin/main
     answer:
       "No. Knit ensures your child stays in school. We pay your arrears directly to the school so that your child’s education is not interrupted.",
   },
@@ -13,7 +17,11 @@ const groupedFaqsData = [
     category: "Parents",
     question: "How much do I need to pay upfront?",
     answer:
+<<<<<<< HEAD
       "Parents contribute a minimum deposit (usually around 20–25%) and repay the balance to knit over agreed instalments.",
+=======
+      "Parents contribute a minimum deposit (usually around 20–25%) and repay the balance to Knit over agreed instalments.",
+>>>>>>> origin/main
   },
   {
     category: "Parents",
@@ -23,7 +31,11 @@ const groupedFaqsData = [
   },
   {
     category: "Parents",
+<<<<<<< HEAD
     question: "Will knit check my credit record?",
+=======
+    question: "Will Knit check my credit record?",
+>>>>>>> origin/main
     answer:
       "Yes. We run a credit check to make sure repayments are affordable for you. This protects you from over-indebtedness.",
   },
@@ -31,13 +43,21 @@ const groupedFaqsData = [
     category: "Parents",
     question: "What happens if I don’t make payments?",
     answer:
+<<<<<<< HEAD
       "If repayments are not made, knit may report the default to a registered credit bureau in line with the National Credit Act. This could affect your ability to borrow in future.",
+=======
+      "If repayments are not made, Knit may report the default to a registered credit bureau in line with the National Credit Act. This could affect your ability to borrow in future.",
+>>>>>>> origin/main
   },
 
   // Schools
   {
     category: "Schools",
+<<<<<<< HEAD
     question: "Is there any recourse if parents don’t repay knit?",
+=======
+    question: "Is there any recourse if parents don’t repay Knit?",
+>>>>>>> origin/main
     answer:
       "No. Knit takes on the full credit risk. Once we pay you, you keep the funds regardless of whether the parent repays us.",
   },
@@ -55,9 +75,15 @@ const groupedFaqsData = [
   },
   {
     category: "Schools",
+<<<<<<< HEAD
     question: "How much does knit charge schools?",
     answer:
       "We charge a small arrear protection fee (typically 3–5%) on the amounts we settle. This is clearly agreed upfront.",
+=======
+    question: "How much does Knit charge schools?",
+    answer:
+      "We charge a small arrear protection fee on the amounts we settle. This is clearly agreed upfront.",
+>>>>>>> origin/main
   },
   {
     category: "Schools",
@@ -69,19 +95,31 @@ const groupedFaqsData = [
   // Compliance
   {
     category: "Compliance",
+<<<<<<< HEAD
     question: "Is knit a registered credit provider?",
+=======
+    question: "Is Knit a registered credit provider?",
+>>>>>>> origin/main
     answer:
       "Yes. Knit is registered with the National Credit Regulator (NCR) in terms of the National Credit Act (NCA).",
   },
   {
     category: "Compliance",
+<<<<<<< HEAD
     question: "How does knit comply with POPIA?",
+=======
+    question: "How does Knit comply with POPIA?",
+>>>>>>> origin/main
     answer:
       "We only use personal and financial data for credit assessment, fraud prevention, and service delivery. All data is processed and stored securely in line with the Protection of Personal Information Act (POPIA).",
   },
   {
     category: "Compliance",
+<<<<<<< HEAD
     question: "How does knit protect parents and schools from unfair practices?",
+=======
+    question: "How does Knit protect parents and schools from unfair practices?",
+>>>>>>> origin/main
     answer:
       "We follow the FSCA Treating Customers Fairly (TCF) framework, ensuring transparent pricing, clear terms, and no hidden fees.",
   },
@@ -93,7 +131,11 @@ const groupedFaqsData = [
   },
   {
     category: "Compliance",
+<<<<<<< HEAD
     question: "Who regulates knit?",
+=======
+    question: "Who regulates Knit?",
+>>>>>>> origin/main
     answer:
       "Knit operates under oversight from the National Credit Regulator (NCR), the Financial Sector Conduct Authority (FSCA), and POPIA compliance under the Information Regulator of South Africa.",
   },
@@ -107,7 +149,11 @@ const generalFaqs = [
       "Our pre-qualification is simple and quick. You provide your name, surname, mobile number, and ID number. We run a quick check and give you an instant decision on your eligibility for our payment plan.",
   },
   {
+<<<<<<< HEAD
     question: "Does my school need to be registered with knit?",
+=======
+    question: "Does my school need to be registered with Knit?",
+>>>>>>> origin/main
     answer:
       "We work with most schools, but the process is smoother if your school is already registered with us. If they're not, we can reach out to them as part of your application process.",
   },

@@ -17,7 +17,11 @@ const testimonials = [
     img: "/images/avatars/avatar2.png",
   },
   {
+<<<<<<< HEAD
     name: "Themba Mahlangu",
+=======
+    name: "Iminathi Mahlangu",
+>>>>>>> origin/main
     role: "Single parent",
     rating: 4,
     text: "After losing my job, I was worried about my daughter's education. Knit helped me manage the school fees until I got back on my feet. The pre-qualification was incredibly fast.",

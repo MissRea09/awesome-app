@@ -45,7 +45,11 @@ const Footer: React.FC = () => {
         <li><a href="/#home">Home</a></li>
         <li><a href="/#how-it-works">How it works</a></li>
         <li><a href="/#testimonials">Testimonials</a></li>
+<<<<<<< HEAD
         <li><Link to="/faq">FAQ</Link></li> 
+=======
+        <li><Link to="/faq">FAQ</Link></li>
+>>>>>>> origin/main
         <li><Link to="/about">About Us</Link></li>
    
 </ul>
@@ -128,3 +132,4 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
+

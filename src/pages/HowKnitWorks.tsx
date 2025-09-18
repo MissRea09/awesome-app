@@ -6,10 +6,17 @@ const HowKnitWorks: React.FC = () => {
     <section className="text-center">
 <div id="how-it-works" className="text-gray-600 mb-8">
   {/* <h1 className="text-3xl font-bold">How It Works</h1> */}
+<<<<<<< HEAD
   
 
 
       <h2 className="text-2xl font-bold mb-2">How knit works</h2>
+=======
+ 
+
+
+      <h2 className="text-2xl font-bold mb-2">How Knit Works</h2>
+>>>>>>> origin/main
       <p className="text-gray-600 mb-8">
         Our simple process helps parents manage school fees while ensuring
         schools get paid on time.
@@ -45,7 +52,11 @@ const HowKnitWorks: React.FC = () => {
       </div>
       </div>
     </section>
+<<<<<<< HEAD
     
+=======
+   
+>>>>>>> origin/main
   );
 };
 
