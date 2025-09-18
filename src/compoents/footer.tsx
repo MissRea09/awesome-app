@@ -45,7 +45,11 @@ const Footer: React.FC = () => {
         <li><a href="/#home">Home</a></li>
         <li><a href="/#how-it-works">How it works</a></li>
         <li><a href="/#testimonials">Testimonials</a></li>
+<<<<<<< HEAD
+        <li><Link to="/faq">FAQ</Link></li> 
+=======
         <li><Link to="/faq">FAQ</Link></li>
+>>>>>>> origin/main
         <li><Link to="/about">About Us</Link></li>
    
 </ul>
@@ -87,7 +91,7 @@ const Footer: React.FC = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-700 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between text-sm px-6 max-w-7xl mx-auto">
-        <p>© 2025 Knit. All rights reserved.</p>
+        <p>© 2025 knit. All rights reserved.</p>
         <div className="flex space-x-6 mt-4 md:mt-0">
           <button
             onClick={() => setIsTermsOpen(true)}
