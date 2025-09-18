@@ -3,11 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./compoents/navbar";
 import HomePage from "./pages/PreQualificationPage";
-import HowKnitWorks from "./pages/HowKnitWorks";
 import Testimonials from "./pages/testimonies";
 import Footer from "./compoents/footer";
-import HowKnitWorksSchools from "./pages/howKnitWorksForSchools";
+import HowknitWorksSchools from "./pages/howknitWorksForSchools"; // ✅ match file
 import TermsOfService from "./pages/TermsOfService";
+import FAQ from "./pages/FAQ";
+import AboutUs from "./pages/AboutUs";
+import HowknitWorks from "./pages/HowknitWorks"; // ✅ match file
 
 const App: React.FC = () => {
   return (
@@ -16,38 +18,29 @@ const App: React.FC = () => {
         <Navbar />
 
         <Routes>
-          {/* Home route (PreQual only) */}
           <Route
             path="/"
             element={
               <>
-                <section id="home">
+                <section id="home" className="scroll-mt-28">
                   <HomePage />
                 </section>
-                {/* <section id="how-it-works">
-                  <HowKnitWorks />
-                </section> */}
-                <section id="testimonials">
+
+                <section id="how-it-works" className="scroll-mt-28">
+                  <HowknitWorks />
+                </section>
+
+                <section id="testimonials" className="scroll-mt-28">
                   <Testimonials />
                 </section>
               </>
             }
           />
 
-          {/* Schools route */}
-          <Route
-            path="/schools"
-            element={
-              <>
-                <section id="schools">
-                  <HowKnitWorksSchools />
-                </section>
-              </>
-            }
-          />
-
-          {/* Terms of Service route */}
+          <Route path="/schools" element={<HowknitWorksSchools />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/about" element={<AboutUs />} />
         </Routes>
 
         <Footer />

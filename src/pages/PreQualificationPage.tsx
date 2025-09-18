@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { supabase } from "../lib/supabaseClient"; // adjust path if needed
-import HowKnitWorksParent from "./HowKnitWorks";
-import HowKnitWorksSchools from "./howKnitWorksForSchools";
-import WhyChooseKnit from "./WhyChooseKnit";
-import WhySchoolsChooseKnit from "./whySchoolsChooseKnit";
+import { supabase } from "../lib/supabaseClient"; // adjust if needed
+import HowknitWorksParent from "./HowknitWorks";
+import HowknitWorksSchools from "./howknitWorksForSchools";
+import WhyChooseknit from "./WhyChooseknit";
+import WhySchoolsChooseknit from "./whySchoolsChooseknit";
+import CreditConsentModal from "../compoents/CreditConsentModal";
+
+
 
 const HomePage: React.FC = () => {
   const [formType, setFormType] = useState<"parent" | "school">("parent");
@@ -17,6 +20,7 @@ const HomePage: React.FC = () => {
     contactPerson: "",
     contactEmail: "",
     contactNumber: "",
+    creditConsent: false,
   });
 
   const [errors, setErrors] = useState({
@@ -28,34 +32,28 @@ const HomePage: React.FC = () => {
     contactPerson: "",
     contactEmail: "",
     contactNumber: "",
+    creditConsent: "",
   });
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  const [showModal, setShowModal] = useState(false); // 👈 modal state
+  const [showModal, setShowModal] = useState(false);
+  const [showCreditConsent, setShowCreditConsent] = useState(false);
+  const [creditConsentEnabled, setCreditConsentEnabled] = useState(false);
 
-  // ─── Regex Patterns ─────────────────────────────
   const nameRegex = /^[A-Za-z\s]+$/;
   const mobileRegex = /^\d{10,}$/;
   const idRegex = /^\d{13}$/;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, value, type, checked } = e.target;
+    setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
   };
 
   const validate = () => {
     let valid = true;
-    let newErrors = {
-      fullName: "",
-      surname: "",
-      mobile: "",
-      idNumber: "",
-      schoolName: "",
-      contactPerson: "",
-      contactEmail: "",
-      contactNumber: "",
-    };
+    const newErrors = { ...errors };
+    Object.keys(newErrors).forEach((k) => (newErrors[k as keyof typeof newErrors] = ""));
 
     if (formType === "parent") {
       if (!formData.fullName || !nameRegex.test(formData.fullName)) {
@@ -63,7 +61,7 @@ const HomePage: React.FC = () => {
         valid = false;
       }
       if (!formData.surname || !nameRegex.test(formData.surname)) {
-        newErrors.surname = "Enter a valid surname";
+        newErrors.surname = "Enter a valid school name";
         valid = false;
       }
       if (!formData.mobile || !mobileRegex.test(formData.mobile)) {
@@ -72,6 +70,10 @@ const HomePage: React.FC = () => {
       }
       if (!formData.idNumber || !idRegex.test(formData.idNumber)) {
         newErrors.idNumber = "Enter a valid 13-digit ID number";
+        valid = false;
+      }
+      if (!formData.creditConsent) {
+        newErrors.creditConsent = "You must give credit consent to proceed.";
         valid = false;
       }
     }
@@ -117,13 +119,14 @@ const HomePage: React.FC = () => {
         {
           form_type: formType,
           full_name: formData.fullName,
-          surname: formData.surname,
+          surname: formType === "parent" ? formData.surname : "",
           mobile: formData.mobile,
           id_number: formData.idNumber,
-          school_name: formData.schoolName,
+          school_name: formType === "school" ? formData.schoolName : "",
           contact_person: formData.contactPerson,
           contact_email: formData.contactEmail,
           contact_number: formData.contactNumber,
+          consent: formData.creditConsent,
           created_at: new Date(),
         },
       ]);
@@ -131,7 +134,7 @@ const HomePage: React.FC = () => {
       if (error) throw error;
 
       setMessage("✅ Form submitted successfully!");
-      setShowModal(true); // 👈 show modal
+      setShowModal(true);
 
       setFormData({
         fullName: "",
@@ -142,7 +145,9 @@ const HomePage: React.FC = () => {
         contactPerson: "",
         contactEmail: "",
         contactNumber: "",
+        creditConsent: false,
       });
+      setCreditConsentEnabled(false);
     } catch (err: any) {
       setMessage(`❌ Error: ${err.message}`);
     } finally {
@@ -152,15 +157,14 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="px-8 md:px-20 py-16 space-y-16 mt-12">
-      {/* Top Section */}
       <div className="flex flex-col md:flex-row justify-between items-center space-y-12 md:space-y-0">
         {/* Left Section */}
         <div className="max-w-lg space-y-6">
           <h1 className="text-4xl font-bold leading-snug">
-            Buy Now, Pay Later <br /> for School Fees
+            School fees<br /> financial support
           </h1>
           <p className="text-gray-600">
-            Help your child stay in school while managing your finances. Knit
+            Help your child stay in school while managing your finances. knit
             pays the school upfront, you pay us back in flexible installments.
           </p>
           <div className="flex space-x-4">
@@ -173,7 +177,7 @@ const HomePage: React.FC = () => {
               }`}
               onClick={() => setFormType("parent")}
             >
-              Pre-qualify Now
+              Pre-qualify
             </button>
             <button
               type="button"
@@ -194,12 +198,13 @@ const HomePage: React.FC = () => {
 
         {/* Right Section - Form */}
         <div className="bg-white shadow-md rounded-xl p-8 w-full max-w-md">
-          <h3 className="text-lg font-semibold mb-12">Pre-qualify in seconds</h3>
+          <h3 className="text-lg font-semibold mb-12">
+            {formType === "parent" ? "Pre-qualify" : "Sign-up"}
+          </h3>
 
           <form className="space-y-4" onSubmit={handleSubmit}>
             {formType === "parent" && (
               <>
-                {/* Parent form fields */}
                 <div>
                   <input
                     type="text"
@@ -220,7 +225,7 @@ const HomePage: React.FC = () => {
                   <input
                     type="text"
                     name="surname"
-                    placeholder="Enter your surname"
+                    placeholder="Enter your school name"
                     value={formData.surname}
                     onChange={handleChange}
                     className={`w-full border rounded-md p-3 ${
@@ -263,17 +268,44 @@ const HomePage: React.FC = () => {
                     <p className="text-red-500 text-sm mt-1">{errors.idNumber}</p>
                   )}
                 </div>
+
+                <div className="flex items-start space-x-2 mt-4">
+                  <input
+                    type="checkbox"
+                    name="creditConsent"
+                    checked={formData.creditConsent}
+                    onChange={handleChange}
+                    disabled={!creditConsentEnabled}
+                    className="mt-1"
+                  />
+                  <label className="text-sm text-gray-700">
+                    I consent to knit processing my personal information for
+                    credit assessment.{" "}
+                    <button
+                      type="button"
+                      onClick={() => setShowCreditConsent(true)}
+                      className="hover:underline text-gray-700"
+                    >
+                      Learn more here
+                    </button>
+                    .
+                  </label>
+                </div>
+                {errors.creditConsent && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.creditConsent}
+                  </p>
+                )}
               </>
             )}
 
             {formType === "school" && (
               <>
-                {/* School form fields */}
                 <div>
                   <input
                     type="text"
                     name="schoolName"
-                    placeholder="School Name"
+                    placeholder="Enter school name"
                     value={formData.schoolName}
                     onChange={handleChange}
                     className={`w-full border rounded-md p-3 ${
@@ -281,9 +313,7 @@ const HomePage: React.FC = () => {
                     }`}
                   />
                   {errors.schoolName && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.schoolName}
-                    </p>
+                    <p className="text-red-500 text-sm mt-1">{errors.schoolName}</p>
                   )}
                 </div>
 
@@ -291,7 +321,7 @@ const HomePage: React.FC = () => {
                   <input
                     type="text"
                     name="contactPerson"
-                    placeholder="Contact Person"
+                    placeholder="Enter contact person"
                     value={formData.contactPerson}
                     onChange={handleChange}
                     className={`w-full border rounded-md p-3 ${
@@ -309,7 +339,7 @@ const HomePage: React.FC = () => {
                   <input
                     type="email"
                     name="contactEmail"
-                    placeholder="Contact Email"
+                    placeholder="Enter contact email"
                     value={formData.contactEmail}
                     onChange={handleChange}
                     className={`w-full border rounded-md p-3 ${
@@ -325,9 +355,9 @@ const HomePage: React.FC = () => {
 
                 <div>
                   <input
-                    type="text"
+                    type="tel"
                     name="contactNumber"
-                    placeholder="Contact Number"
+                    placeholder="Enter contact number"
                     value={formData.contactNumber}
                     onChange={handleChange}
                     className={`w-full border rounded-md p-3 ${
@@ -348,7 +378,11 @@ const HomePage: React.FC = () => {
               disabled={loading}
               className="w-full bg-gray-800 text-white py-3 rounded-md font-medium hover:bg-gray-900 disabled:opacity-50"
             >
-              {loading ? "Submitting..." : "Check Eligibility"}
+              {loading
+                ? "Submitting..."
+                : formType === "parent"
+                ? "Check Eligibility"
+                : "Submit"}
             </button>
           </form>
 
@@ -358,19 +392,17 @@ const HomePage: React.FC = () => {
         </div>
       </div>
 
-      {/* How Knit Works + Why Choose Section */}
       <div className="space-y-16">
         {formType === "parent" && (
           <>
-            <HowKnitWorksParent />
-            <WhyChooseKnit />
+            <HowknitWorksParent />
+            <WhyChooseknit />
           </>
         )}
-
         {formType === "school" && (
           <>
-            <HowKnitWorksSchools />
-            <WhySchoolsChooseKnit />
+            <HowknitWorksSchools />
+            <WhySchoolsChooseknit />
           </>
         )}
       </div>
@@ -391,6 +423,17 @@ const HomePage: React.FC = () => {
             </button>
           </div>
         </div>
+      )}
+
+      {/* ✅ New Credit Consent Modal */}
+      {showCreditConsent && (
+       <CreditConsentModal
+  isOpen={showCreditConsent}
+  onClose={() => {
+    setShowCreditConsent(false);
+    setCreditConsentEnabled(true); // Enable checkbox after closing
+  }}
+/>
       )}
     </div>
   );
