@@ -6,11 +6,7 @@ const AboutUs: React.FC = () => {
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-6">About Knit</h1>
         <p className="text-gray-700 mb-4">
-<<<<<<< HEAD
-          At knit, we believe access to education and essential goods should
-=======
           At Knit, we believe access to education and essential goods should
->>>>>>> origin/main
           never be disrupted by cash-flow challenges. Too often, schools,
           parents, and businesses are trapped between rigid payment systems and
           the real-world reality of delayed income. That’s where we come in.
@@ -34,9 +30,7 @@ const AboutUs: React.FC = () => {
           and reliable.
         </p>
 
-        <h2 className="text-2xl font-semibold mt-8 mb-4">
-          Why It’s Important
-        </h2>
+        <h2 className="text-2xl font-semibold mt-8 mb-4">Why It’s Important</h2>
         <p className="text-gray-700 mb-4">
           In South Africa, 1 in 3 independent school fees go unpaid or are
           delayed. This creates strain for schools and uncertainty for families.
@@ -68,8 +62,4 @@ const AboutUs: React.FC = () => {
   );
 };
 
-<<<<<<< HEAD
 export default AboutUs;
-=======
-export default AboutUs;
->>>>>>> origin/main
