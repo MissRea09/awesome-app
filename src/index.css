@@ -4,5 +4,10 @@
 
 html {
   scroll-behavior: smooth;
+<<<<<<< HEAD
+  scroll-padding-top: 8rem; 
+}
+=======
   scroll-padding-top: 7rem;
 }
+>>>>>>> origin/main

@@ -94,9 +94,9 @@ const TermsOfService: React.FC = () => {
           <br />
           Website: www.knit.cash
           <br />
-          Tel: [insert]
+          Tel:  +27 83 974 9024 
           <br />
-          Address: [insert business address]
+          Address: Level 2, The Zone@Rosebank,177 Oxford Road, Johannesburg,2196, South Africa
         </p>
 
         <h2 className="text-xl font-semibold mt-6 mb-2">
