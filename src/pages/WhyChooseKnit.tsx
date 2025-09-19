@@ -34,7 +34,7 @@ const WhyChooseKnit: React.FC = () => {
       <div className="max-w-6xl mx-auto px-6 text-center">
         {/* Heading */}
         <h2 className="text-3xl font-bold text-gray-900 mb-4">
-          Why Choose Knit
+          Why choose knit
         </h2>
         <p className="text-gray-600 mb-12">
           Our features are designed to make school fee payments easier for

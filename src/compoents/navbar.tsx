@@ -23,29 +23,51 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center py-3">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
-          <img src={knitLogo} alt="Knit Logo" className="h-12 w-auto rounded-md" />
+          <img
+            src={knitLogo}
+            alt="Knit Logo"
+            className="h-12 w-auto rounded-md object-contain"
+          />
         </Link>
 
         {/* Desktop Links */}
         <ul className="hidden md:flex space-x-8 text-gray-700 font-medium">
-          <li><a href="/#home" className="hover:text-black">Home</a></li>
-          <li><a href="/#how-it-works" className="hover:text-black">How It Works</a></li>
-          <li><Link to="/schools" className="hover:text-black">For Schools</Link></li>
-          <li><a href="/#home" onClick={handleScrollToParents} className="hover:text-black"> For Parents</a></li>
-          <li><a href="/#testimonials" className="hover:text-black">Testimonials</a></li>
-          {/* <li><Link to="/faq" className="hover:text-black">FAQ</Link></li>
-          <li><Link to="/about" className="hover:text-black">About Us</Link></li> */}
+          <li>
+            <a href="/#home" className="hover:text-black">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="/#how-it-works" className="hover:text-black">
+              How It Works
+            </a>
+          </li>
+          <li>
+            <Link to="/schools" className="hover:text-black">
+              For Schools
+            </Link>
+          </li>
+          <li>
+            <a href="/#home" onClick={handleScrollToParents} className="hover:text-black">
+              For Parents
+            </a>
+          </li>
+          <li>
+            <a href="/#testimonials" className="hover:text-black">
+              Testimonials
+            </a>
+          </li>
+          <li>
+            <Link to="/faq" className="hover:text-black">
+              FAQ
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" className="hover:text-black">
+              About Us
+            </Link>
+          </li>
         </ul>
-
-        {/* Pre-qualify CTA (desktop) */}
-        <div className="hidden md:block">
-          <a
-            href="/#home"
-            className="bg-gray-900 text-white px-4 py-2 rounded-md hover:bg-gray-800"
-          >
-            Pre-qualify
-          </a>
-        </div>
 
         {/* Mobile Hamburger */}
         <button
@@ -60,21 +82,40 @@ const Navbar: React.FC = () => {
       {isOpen && (
         <div className="md:hidden bg-white shadow-md border-t">
           <ul className="flex flex-col space-y-4 py-6 px-6 text-gray-700 font-medium">
-            <li><a href="/#home" onClick={() => setIsOpen(false)}>Home</a></li>
-            <li><a href="/#how-it-works" onClick={() => setIsOpen(false)}>How It Works</a></li>
-            <li><Link to="/schools" onClick={() => setIsOpen(false)}>For Schools</Link></li>
-            <li><a href="/#home" onClick={handleScrollToParents}>For Parents</a></li>
-            <li><a href="/#testimonials" onClick={() => setIsOpen(false)}>Testimonials</a></li>
-            <li><Link to="/faq" onClick={() => setIsOpen(false)}>FAQ</Link></li>
-            <li><Link to="/about" onClick={() => setIsOpen(false)}>About Us</Link></li>
             <li>
-              <a
-                href="/#home"
-                className="bg-gray-900 text-white px-4 py-2 rounded-md block text-center"
-                onClick={() => setIsOpen(false)}
-              >
-                Pre-qualify
+              <a href="/#home" onClick={() => setIsOpen(false)}>
+                Home
               </a>
+            </li>
+            <li>
+              <a href="/#how-it-works" onClick={() => setIsOpen(false)}>
+                How It Works
+              </a>
+            </li>
+            <li>
+              <Link to="/schools" onClick={() => setIsOpen(false)}>
+                For Schools
+              </Link>
+            </li>
+            <li>
+              <a href="/#home" onClick={handleScrollToParents}>
+                For Parents
+              </a>
+            </li>
+            <li>
+              <a href="/#testimonials" onClick={() => setIsOpen(false)}>
+                Testimonials
+              </a>
+            </li>
+            <li>
+              <Link to="/faq" onClick={() => setIsOpen(false)}>
+                FAQ
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" onClick={() => setIsOpen(false)}>
+                About Us
+              </Link>
             </li>
           </ul>
         </div>

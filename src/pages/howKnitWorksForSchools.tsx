@@ -29,10 +29,13 @@ const HowKnitWorksSchools: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section
+      id="schools"
+      className="py-16 bg-gray-50 scroll-mt-28" // 👈 added scroll margin
+    >
       <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-4">
-          How Knit Works With Schools
+         <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">
+          How knit works for schools
         </h2>
         <p className="text-gray-600 text-center mb-12">
           A simple, streamlined process designed to minimize disruption to your

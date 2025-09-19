@@ -107,7 +107,7 @@ const CookiesPolicyModal: React.FC<CookiesPolicyModalProps> = ({
         <p className="mb-4">
           Email: info@knit.cash
           <br />
-          Registered Address: Luddites Group (Pty) Ltd t/a Knit, [insert address]
+          Registered Address: Luddites Group (Pty) Ltd t/a Knit, Level 2, The Zone@Rosebank,177 Oxford Road, Johannesburg,2196, South Africa
         </p>
       </div>
     </div>

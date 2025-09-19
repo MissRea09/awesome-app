@@ -2,14 +2,14 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./compoents/navbar";
-import HomePage from "./pages/PreQualificationPage";
-import Testimonials from "./pages/testimonies";
 import Footer from "./compoents/footer";
-import HowKnitWorksSchools from "./pages/howKnitWorksForSchools";
+import HomePage from "./pages/PreQualificationPage";
+import HowKnitWorks from "./pages/HowKnitWorks";
+import HowKnitWorksSchools from "./pages/HowKnitWorks";
+import Testimonials from "./pages/testimonies";
 import TermsOfService from "./pages/TermsOfService";
 import FAQ from "./pages/FAQ";
 import AboutUs from "./pages/AboutUs";
-import HowKnitWorks from "./pages/HowKnitWorks";
 
 const App: React.FC = () => {
   return (
@@ -23,11 +23,12 @@ const App: React.FC = () => {
             path="/"
             element={
               <>
-                <section id="home"  className="scroll-mt-28">
+                <section id="home" className="scroll-mt-28">
                   <HomePage />
                 </section>
 
-                {/* <section id="how-it-works">
+                {/* Uncomment to include HowKnitWorks section */}
+                {/* <section id="how-it-works" className="scroll-mt-28">
                   <HowKnitWorks />
                 </section> */}
 
