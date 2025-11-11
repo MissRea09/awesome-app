@@ -1,0 +1,264 @@
+{
+  "demo_request": {
+    "formData": {
+      "fullName": "John Smith",
+      "email": "john.smith@abcuniversity.ac.za",
+      "organization": "ABC University",
+      "phone": "+27 11 234 5678",
+      "vertical": "education",
+      "message": "We're looking for a payment solution for approximately 5,000 students across multiple campuses.",
+      "subscribeNewsletter": true
+    },
+    "crmData": {
+      "formType": "demo_request",
+      "firstName": "John",
+      "lastName": "Smith",
+      "email": "john.smith@abcuniversity.ac.za",
+      "phone": "+27 11 234 5678",
+      "company": "ABC University",
+      "industry": "Education - Higher Education",
+      "leadSource": "Website - Demo Request",
+      "leadStatus": "New",
+      "leadScore": 85,
+      "productInterest": "Knit Edu",
+      "createdAt": "2025-10-31T14:30:00.000Z",
+      "updatedAt": "2025-10-31T14:30:00.000Z",
+      "consent": {
+        "marketingConsent": true,
+        "termsAccepted": true,
+        "privacyPolicyAccepted": true,
+        "dataProcessingConsent": true,
+        "consentTimestamp": "2025-10-31T14:30:00.000Z",
+        "consentMethod": "explicit"
+      },
+      "utm": {
+        "utm_source": "google",
+        "utm_medium": "cpc",
+        "utm_campaign": "edu_africa_2024",
+        "utm_term": "student+finance+south+africa",
+        "utm_content": "landing_page_variant_a"
+      },
+      "device": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "platform": "MacIntel",
+        "isMobile": false,
+        "isTablet": false,
+        "isDesktop": true,
+        "browserName": "Chrome",
+        "browserVersion": "120.0"
+      },
+      "session": {
+        "sessionId": "session_1730381400000_x7k9m2p",
+        "pageUrl": "https://knit.com/edu?utm_source=google&utm_medium=cpc&utm_campaign=edu_africa_2024",
+        "pagePath": "/edu",
+        "referrer": "https://www.google.com/",
+        "landingPage": "https://knit.com/",
+        "timeOnSite": 245,
+        "pagesVisited": 5
+      },
+      "description": "We're looking for a payment solution for approximately 5,000 students across multiple campuses."
+    },
+    "metadata": {
+      "formName": "demo_request",
+      "submissionTime": "2025-10-31T14:30:00.000Z",
+      "timeToSubmit": 245
+    }
+  },
+  
+  "general_inquiry": {
+    "formData": {
+      "firstName": "Sarah",
+      "lastName": "Johnson",
+      "email": "sarah.j@xyzinsurance.co.za",
+      "company": "XYZ Insurance",
+      "interest": "life",
+      "message": "We're interested in implementing Knit Life for our funeral insurance product. We currently serve 50,000 policyholders and are looking to improve our premium collection rates.",
+      "subscribeNewsletter": true
+    },
+    "crmData": {
+      "formType": "general_inquiry",
+      "firstName": "Sarah",
+      "lastName": "Johnson",
+      "email": "sarah.j@xyzinsurance.co.za",
+      "company": "XYZ Insurance",
+      "leadSource": "Website - Get In Touch",
+      "leadStatus": "New",
+      "leadScore": 75,
+      "inquiryType": "life",
+      "message": "We're interested in implementing Knit Life for our funeral insurance product. We currently serve 50,000 policyholders and are looking to improve our premium collection rates.",
+      "createdAt": "2025-10-31T15:15:00.000Z",
+      "updatedAt": "2025-10-31T15:15:00.000Z",
+      "consent": {
+        "marketingConsent": true,
+        "termsAccepted": true,
+        "privacyPolicyAccepted": true,
+        "dataProcessingConsent": true,
+        "consentTimestamp": "2025-10-31T15:15:00.000Z",
+        "consentMethod": "explicit"
+      },
+      "utm": {
+        "utm_source": "linkedin",
+        "utm_medium": "social",
+        "utm_campaign": "life_services_q4"
+      },
+      "device": {
+        "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1",
+        "platform": "iPhone",
+        "isMobile": true,
+        "isTablet": false,
+        "isDesktop": false,
+        "browserName": "Safari",
+        "browserVersion": "17.0"
+      },
+      "session": {
+        "sessionId": "session_1730384100000_a3b8n5q",
+        "pageUrl": "https://knit.com/#contact",
+        "pagePath": "/",
+        "referrer": "https://www.linkedin.com/",
+        "landingPage": "https://knit.com/",
+        "timeOnSite": 180,
+        "pagesVisited": 3
+      },
+      "description": "We're interested in implementing Knit Life for our funeral insurance product. We currently serve 50,000 policyholders and are looking to improve our premium collection rates."
+    },
+    "metadata": {
+      "formName": "get_in_touch",
+      "submissionTime": "2025-10-31T15:15:00.000Z",
+      "timeToSubmit": 180
+    }
+  },
+  
+  "partner_application": {
+    "formData": {
+      "fullName": "Michael Chen",
+      "email": "michael@techintegrations.com",
+      "company": "Tech Integrations Inc",
+      "phone": "+27 21 555 9876",
+      "position": "VP of Business Development",
+      "companySize": "51-200 employees",
+      "website": "https://techintegrations.com",
+      "partnershipType": "API Integration Partner",
+      "partnershipInterest": "We specialize in building custom integrations for financial services companies. We have 15+ clients in the education sector and believe Knit would be a great addition to our solution portfolio. We'd like to explore becoming a certified integration partner.",
+      "agreedToTerms": true
+    },
+    "crmData": {
+      "formType": "partner_application",
+      "firstName": "Michael",
+      "lastName": "Chen",
+      "email": "michael@techintegrations.com",
+      "phone": "+27 21 555 9876",
+      "company": "Tech Integrations Inc",
+      "companySize": "51-200 employees",
+      "website": "https://techintegrations.com",
+      "leadSource": "Website - Partner Application",
+      "leadStatus": "New",
+      "leadScore": 90,
+      "partnershipType": "API Integration Partner",
+      "jobTitle": "VP of Business Development",
+      "partnershipDescription": "We specialize in building custom integrations for financial services companies. We have 15+ clients in the education sector and believe Knit would be a great addition to our solution portfolio. We'd like to explore becoming a certified integration partner.",
+      "partnerStatus": "Applied",
+      "createdAt": "2025-10-31T16:45:00.000Z",
+      "updatedAt": "2025-10-31T16:45:00.000Z",
+      "consent": {
+        "marketingConsent": true,
+        "termsAccepted": true,
+        "privacyPolicyAccepted": true,
+        "dataProcessingConsent": true,
+        "consentTimestamp": "2025-10-31T16:45:00.000Z",
+        "consentMethod": "explicit"
+      },
+      "utm": {},
+      "device": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "platform": "Win32",
+        "isMobile": false,
+        "isTablet": false,
+        "isDesktop": true,
+        "browserName": "Chrome",
+        "browserVersion": "120.0"
+      },
+      "session": {
+        "sessionId": "session_1730389500000_k6m2p9x",
+        "pageUrl": "https://knit.com/resources/partner#partner-form",
+        "pagePath": "/resources/partner",
+        "referrer": "direct",
+        "landingPage": "https://knit.com/resources/partner",
+        "timeOnSite": 420,
+        "pagesVisited": 2
+      },
+      "notes": "We specialize in building custom integrations for financial services companies. We have 15+ clients in the education sector and believe Knit would be a great addition to our solution portfolio. We'd like to explore becoming a certified integration partner."
+    },
+    "metadata": {
+      "formName": "partner_application",
+      "submissionTime": "2025-10-31T16:45:00.000Z",
+      "timeToSubmit": 420
+    }
+  },
+  
+  "high_value_lead": {
+    "comment": "Example of a high-value lead with lead score > 90",
+    "formData": {
+      "fullName": "Dr. Patricia Williams",
+      "email": "p.williams@nationaluniversity.edu",
+      "organization": "National University of South Africa",
+      "phone": "+27 12 429 3111",
+      "vertical": "education",
+      "message": "We're the largest university in South Africa with 300,000+ students. Currently evaluating embedded finance solutions for student fee management across all our campuses. Looking to implement in Q1 2026.",
+      "subscribeNewsletter": true
+    },
+    "crmData": {
+      "formType": "demo_request",
+      "firstName": "Patricia",
+      "lastName": "Williams",
+      "email": "p.williams@nationaluniversity.edu",
+      "phone": "+27 12 429 3111",
+      "company": "National University of South Africa",
+      "companySize": "1001+ employees",
+      "industry": "Education - Higher Education",
+      "leadSource": "Website - Demo Request",
+      "leadStatus": "New",
+      "leadScore": 95,
+      "productInterest": "Knit Edu",
+      "createdAt": "2025-10-31T10:00:00.000Z",
+      "updatedAt": "2025-10-31T10:00:00.000Z",
+      "consent": {
+        "marketingConsent": true,
+        "termsAccepted": true,
+        "privacyPolicyAccepted": true,
+        "dataProcessingConsent": true,
+        "consentTimestamp": "2025-10-31T10:00:00.000Z",
+        "consentMethod": "explicit"
+      },
+      "utm": {
+        "utm_source": "google",
+        "utm_medium": "cpc",
+        "utm_campaign": "enterprise_edu_2024",
+        "utm_term": "university+payment+system"
+      },
+      "device": {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "platform": "Win32",
+        "isMobile": false,
+        "isTablet": false,
+        "isDesktop": true,
+        "browserName": "Chrome",
+        "browserVersion": "120.0"
+      },
+      "session": {
+        "sessionId": "session_1730365200000_enterprise_lead",
+        "pageUrl": "https://knit.com/edu",
+        "pagePath": "/edu",
+        "referrer": "https://www.google.com/",
+        "landingPage": "https://knit.com/",
+        "timeOnSite": 680,
+        "pagesVisited": 12
+      },
+      "description": "We're the largest university in South Africa with 300,000+ students. Currently evaluating embedded finance solutions for student fee management across all our campuses. Looking to implement in Q1 2026."
+    },
+    "metadata": {
+      "formName": "demo_request",
+      "submissionTime": "2025-10-31T10:00:00.000Z",
+      "timeToSubmit": 680
+    }
+  }
+}
